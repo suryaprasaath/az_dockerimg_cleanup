@@ -41,9 +41,9 @@ IFS=","
 imgtag_prefix="${3}"
 IFS=","
 threshold_img_count="${4}"
-resource_group="${5}"
-client_id="${6}"
-client_secret="${7}"
+
+client_id="${5}"
+client_secret="${6}"
 
 subscription="82f6da0c-972f-4e06-b7f0-36e6a6303f46"
 tenant_id="d138c625-5abd-4cfe-aaf6-4b1e605c1d0d"
