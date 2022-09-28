@@ -12,4 +12,4 @@
 
 ## Workflow (az_dockerimg_cleanup_schedule.yml)
 
-Schedule for cleanup at 9:00AM(IST) on every day-of-week from Monday through Friday
+  Schedule for cleanup at 9:00AM(IST) on every day-of-week from Monday through Friday
