@@ -48,7 +48,7 @@ client_secret="${7}"
 subscription="82f6da0c-972f-4e06-b7f0-36e6a6303f46"
 tenant_id="d138c625-5abd-4cfe-aaf6-4b1e605c1d0d"
 
-az login --service-principal -u "${client_id}" -p "${client_secret}" --tenant "${tenant_id}" --verbose
+az login --service-principal --username="${client_id}" --tenant="${tenant_id}" --password="${client_secret}" --verbose
 az account set --subscription "${subscription}"
 
 cleanup_image
