@@ -1,0 +1,23 @@
+name: Scheduled cleanup for Azure Docker Registry 
+on:
+  # Schedule for cleanup at 9:00AM(IST) on every day-of-week from Monday through Friday 
+  schedule:
+    - cron: '30 3 * * 1-5'
+  workflow_dispatch: {}
+jobs:
+  manage-resources:
+    strategy:
+      matrix:
+        registry: [suryatest1]
+        repository: [sag2,sag3,sag-frontend-app]
+        imgtag_prefix: [v1.2.3,v.1.2,s1.2,r1.2.3]
+        threshold_img_count: [3]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: azure/login@v1
+        with:
+         creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Run a script for the cleanup
+        run: |
+         bash image_cleanup.sh ${{ matrix.registry }} ${{ matrix.repository }} ${{ matrix.imagetag_prefix }} ${{ matrix.threshold_img_count }}
