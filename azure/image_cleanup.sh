@@ -5,6 +5,9 @@ function cleanup_image(){
     index=0
     for repos in $repository
     do  
+    echo "Registry: $registry"
+    echo "Repository: $repos"
+    echo "-------------"
     image_taglist=$(az acr repository show-tags --orderby time_desc --name $registry --repository $repos --output tsv )
     SAVEIFS=$IFS   
     IFS=$'\n'      
@@ -17,19 +20,20 @@ function cleanup_image(){
             image_tag=`(echo ${image_taglist[$i]} | grep ^"$prefix")`
             for tag in $image_tag
             do
-                echo "tag $i:$tag"
+                echo "tag :$tag"
                 if [ $index -lt $threshold_img_count ]
                 then
                 index=$((index+1))
                 else
                 echo "Deleting image : $repos:$tag"
-                az acr repository delete --name $registry --image $repos:$tag -y
+                #az acr repository delete --name $registry --image $repos:$tag -y
                 fi
             done 
         done 
         index=0
     done  
     image_taglist=""
+    echo "-------------"
     done
 }
 
