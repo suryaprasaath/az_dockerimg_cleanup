@@ -17,12 +17,9 @@ jobs:
         threshold_img_count: [4]
     runs-on: ubuntu-latest
     steps:
-      - name: 'Az CLI login'
-        uses: azure/login@v1
+      - uses: Azure/login@v1
         with:
-          creds: ${{secrets.AZURE_CREDENTIALS}}
-          enable-AzPSSession: true
-          allow-no-subscriptions: true
+         creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
       - name: Run a script for the cleanup
         run: |
          bash image_cleanup.sh ${{ matrix.registry }} ${{ matrix.repository }} ${{ matrix.imagetag_prefix }} ${{ matrix.threshold_img_count }}
