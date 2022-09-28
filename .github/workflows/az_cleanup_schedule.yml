@@ -19,4 +19,4 @@ jobs:
     steps:
       - name: Run a script for the cleanup
         run: |
-         bash ${GITHUB_WORKSPACE}/image_cleanup.sh ${{ matrix.registry }} ${{ matrix.repository }} ${{ matrix.imgtag_prefix }} ${{ matrix.threshold_img_count }} ${{ secrets.AZURE_CLIENT_ID }} ${{ secrets.AZURE_CLIENT_SECRET }}
+         bash azure/image_cleanup.sh ${{ matrix.registry }} ${{ matrix.repository }} ${{ matrix.imgtag_prefix }} ${{ matrix.threshold_img_count }} ${{ secrets.AZURE_CLIENT_ID }} ${{ secrets.AZURE_CLIENT_SECRET }}
