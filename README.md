@@ -1,4 +1,4 @@
-# docker_az_cleanup
+# az_dockerimg_cleanup
 
 
 ## Azure Docker image cleanup (image_cleanup.sh)
