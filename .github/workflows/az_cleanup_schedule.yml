@@ -14,10 +14,12 @@ jobs:
         threshold_img_count: [3]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: azure/login@v1
+      - name: 'Az CLI login'
+        uses: azure/login@v1
         with:
-         creds: ${{ secrets.AZURE_CREDENTIALS }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       - name: Run a script for the cleanup
         run: |
          bash image_cleanup.sh ${{ matrix.registry }} ${{ matrix.repository }} ${{ matrix.imagetag_prefix }} ${{ matrix.threshold_img_count }}
