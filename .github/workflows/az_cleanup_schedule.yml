@@ -17,5 +17,6 @@ jobs:
         threshold_img_count: [4]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Run a script for the cleanup
         run:  bash azure/image_cleanup.sh ${{ matrix.registry }} ${{ matrix.repository }} ${{ matrix.imgtag_prefix }} ${{ matrix.threshold_img_count }} ${{ secrets.AZURE_CLIENT_ID }} ${{ secrets.AZURE_CLIENT_SECRET }}
