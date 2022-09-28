@@ -12,9 +12,9 @@ jobs:
     strategy:
       matrix:
         registry: [suryatest1]
-        repository: [sag2,sag3,sag-frontend-app]
-        imgtag_prefix: [v1.2.3,v.1.2,s1.2,r1.2.3]
-        threshold_img_count: [4]
+        repository: ["sag2,sag3,sag-frontend-app"]
+        imgtag_prefix: ["v1.2.3,v.1.2,s1.2,r1.2.3"]
+        threshold_img_count: [3]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
