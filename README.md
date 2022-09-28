@@ -3,7 +3,7 @@
 
 ## Azure Docker image cleanup (image_cleanup.sh)
 
-###Arguments
+### Arguments
 - Registry
 - Repository
 - Prefix of the image tag (eg: v1.2)
