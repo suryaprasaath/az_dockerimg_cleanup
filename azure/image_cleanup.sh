@@ -26,7 +26,7 @@ function cleanup_image(){
                 index=$((index+1))
                 else
                 echo "Deleting image : $repos:$tag"
-                #az acr repository delete --name $registry --image $repos:$tag -y
+                az acr repository delete --name $registry --image $repos:$tag -y
                 fi
             done 
         done 
